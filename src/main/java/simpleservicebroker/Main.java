@@ -16,9 +16,13 @@
  */
 package simpleservicebroker;
 
+import cf.spring.CfComponent;
 import cf.spring.servicebroker.EnableServiceBroker;
+import nats.client.Nats;
+import nats.client.NatsConnector;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
@@ -29,7 +33,12 @@ import org.springframework.context.annotation.Configuration;
 
 // Service Broker Configuration
 @EnableServiceBroker(username = "servicebroker", password = "password")
+// Enable /healthz and /varz
+@CfComponent(type="ServiceBroker")
 public class Main {
+
+	@Bean
+	Nats nats() { return new NatsConnector().addHost("nats://nats:password@10.1.0.1").connect(); }
 
 	public static void main(String[] args) {
 		new SpringApplication(Main.class).run(args);
