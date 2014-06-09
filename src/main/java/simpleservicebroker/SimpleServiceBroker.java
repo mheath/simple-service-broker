@@ -40,7 +40,6 @@ import java.util.Map;
 			plans = {
 					@ServicePlan(id = "plan1", name = "service-plan", description = "It's just a service plan"),
 					@ServicePlan(id = "plan2", name = "another-service-plan", description = "Just another service plan")
-
 		}
 	)
 )
