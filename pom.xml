@@ -18,11 +18,18 @@
 		<dependency>
 			<groupId>com.github.cloudfoundry-community</groupId>
 			<artifactId>cf-spring</artifactId>
-			<version>0.2-SNAPSHOT</version>
+			<version>0.2</version>
 		</dependency>
 	</dependencies>
 
 	<build>
+		<finalName>simple-service-broker</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
 		<pluginManagement>
 			<plugins>
 				<plugin>
