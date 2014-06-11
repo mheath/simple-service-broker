@@ -31,10 +31,10 @@ import org.springframework.context.annotation.Configuration;
 @EnableAutoConfiguration
 @ComponentScan
 
-// Service Broker Configuration
-@EnableServiceBroker(username = "servicebroker", password = "password")
 // Enable /healthz and /varz
 @CfComponent(type="ServiceBroker")
+// Service Broker Configuration
+@EnableServiceBroker(username = "servicebroker", password = "password")
 public class Main {
 
 	@Bean
